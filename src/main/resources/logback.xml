@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<!-- 日志统一放在 C:\\Users\\PC/logs -->
+	<property name="app.logs.path" value="logs" />
+
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %5p %c{1}:%L - %m%n</pattern>
+		</encoder>
+	</appender>
+
+	<!-- error log-->
+	<appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>${app.logs.path}/error.log</File>
+		<encoder>
+			<!--<pattern>%d{yyyy-MM-dd HH:mm:ss}|%level|%logger{1}|%main.msg|%X{traceId}%n</pattern>-->
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %5p %c{1}:%L - %m%n</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${app.logs.path}/archives/error.log.%d{yyyy-MM-dd}</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>ERROR</level>
+		</filter>
+	</appender>
+
+	<!-- debug log -->
+	<appender name="DEBUG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>${app.logs.path}/debug.log</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${app.logs.path}/archives/debug.log.%d{yyyy-MM-dd}</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<!--<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS}|%level|%logger{1}|%main.msg|%X{traceId}%n</pattern>-->
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %5p %c{1}:%L - %m%n</pattern>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>DEBUG</level>
+		</filter>
+	</appender>
+
+	<!-- info log-->
+	<appender name="INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${app.logs.path}/info.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${app.logs.path}/archives/info.log.%d{yyyy-MM-dd}</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<!--<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS}|%level|%logger{1}|%main.msg|%X{traceId}%n</pattern>-->
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %5p %c{1}:%L - %m%n</pattern>
+			<charset>UTF-8</charset>
+		</encoder>
+		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+			<level>INFO</level>
+		</filter>
+	</appender>
+
+
+	<root level="debug">
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="INFO" />
+		<appender-ref ref="DEBUG" />
+		<appender-ref ref="ERROR" />
+	</root>
+
+</configuration>
