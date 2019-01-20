@@ -30,7 +30,19 @@ public class CommonTest {
         //"m/44'/60'/0'/0/0"
 //        BigInteger bigInteger2 = BIP44Util.getPathPrivateKey(mns, "m/44'/60'/0'/0/1");
 //        System.out.println(bigInteger2.toString(16));
+    }
 
+
+    @Test
+    public void testEthAddr(){
+        List<String> mns = MnemonicUtil.randomMnemonicCodes();
+
+        EthereumAddressCreator eac = new EthereumAddressCreator();
+        String addr0 = eac.fromMnemonic(mns, 0);
+        System.out.println(addr0);
+
+        String addr1 = eac.fromMnemonic(mns, 1);
+        System.out.println(addr1);
     }
 
 

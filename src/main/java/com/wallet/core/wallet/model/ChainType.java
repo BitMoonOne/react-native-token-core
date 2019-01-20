@@ -1,5 +1,11 @@
-package com.wallet.core.wallet.common;
+package com.wallet.core.wallet.model;
 
+import com.wallet.core.wallet.common.Messages;
+import com.wallet.core.wallet.common.TokenException;
+
+/**
+ * 链类型model
+ */
 public class ChainType {
   public final static String ETHEREUM = "ETHEREUM";
   public final static String EOS = "EOS";
