@@ -1,6 +1,6 @@
-import com.wallet.core.wallet.address.EthereumAddressCreator;
-import com.wallet.core.wallet.utils.BIP44Util;
-import com.wallet.core.wallet.utils.MnemonicUtil;
+import one.bitmoon.core.wallet.address.EthereumAddressCreator;
+import one.bitmoon.core.wallet.utils.BIP44Util;
+import one.bitmoon.core.wallet.utils.MnemonicUtil;
 import org.junit.Test;
 
 import java.math.BigInteger;
