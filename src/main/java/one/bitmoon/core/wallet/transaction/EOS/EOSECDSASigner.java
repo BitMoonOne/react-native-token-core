@@ -12,10 +12,8 @@ import org.spongycastle.math.ec.ECAlgorithms;
 import org.spongycastle.math.ec.ECMultiplier;
 import org.spongycastle.math.ec.ECPoint;
 import org.spongycastle.math.ec.FixedPointCombMultiplier;
-
 import java.math.BigInteger;
 import java.security.SecureRandom;
-
 import static java.math.BigDecimal.ZERO;
 import static java.math.BigInteger.ONE;
 
